@@ -33,7 +33,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenWhatsAppModal }) => {
   };
 
   return (
-    <section id="inicio" className="relative min-h-[92vh] sm:min-h-screen flex items-center justify-center pt-28 pb-16 overflow-hidden bg-slate-950">
+    <section id="inicio" className="relative min-h-[92vh] sm:min-h-screen flex items-center justify-center pt-32 sm:pt-36 pb-16 overflow-hidden bg-slate-950">
       
       {/* Background Layer 1: High Action Video */}
       <div className={`absolute inset-0 z-0 overflow-hidden transition-opacity duration-1000 ${

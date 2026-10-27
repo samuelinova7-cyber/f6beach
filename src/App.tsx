@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { ForecastWidget } from './components/ForecastWidget';
@@ -15,11 +15,18 @@ import { InstagramFeed } from './components/InstagramFeed';
 import { GoogleReviews } from './components/GoogleReviews';
 import { LocationContact } from './components/LocationContact';
 import { WhatsAppModal, FloatingWhatsApp } from './components/WhatsAppModal';
+import { RealTimeNotifications } from './components/RealTimeNotifications';
 import { Footer } from './components/Footer';
+import { soundEffects } from './utils/soundEffects';
 
 export default function App() {
   const [whatsAppModalOpen, setWhatsAppModalOpen] = useState<boolean>(false);
   const [whatsAppInitialIntent, setWhatsAppInitialIntent] = useState<string>('');
+
+  useEffect(() => {
+    // Initialize global mini-game sound effect on all buttons and clickable elements
+    soundEffects.initGlobalButtonSound();
+  }, []);
 
   const handleOpenWhatsAppModal = (intent?: string) => {
     setWhatsAppInitialIntent(intent || '');
@@ -78,6 +85,9 @@ export default function App() {
 
       {/* Footer */}
       <Footer />
+
+      {/* Real-Time Live Activity Notifications with Mini-Game Sounds */}
+      <RealTimeNotifications />
 
       {/* Floating Interactive WhatsApp Quick Button */}
       <FloatingWhatsApp onOpen={() => handleOpenWhatsAppModal()} />

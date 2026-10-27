@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, MessageCircle, MapPin, Clock } from 'lucide-react';
+import { Menu, X, MessageCircle, MapPin, Clock, Volume2, VolumeX, Sparkles } from 'lucide-react';
 import { STORE_INFO, OFFICIAL_MEDIA, createWhatsAppLink } from '../data/surfData';
+import { soundEffects } from '../utils/soundEffects';
 
 interface NavbarProps {
   onOpenWhatsAppModal: (intent?: string) => void;
@@ -9,13 +10,18 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({ onOpenWhatsAppModal }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isMuted, setIsMuted] = useState(soundEffects.isMuted());
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const unsub = soundEffects.subscribe((muted) => setIsMuted(muted));
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      unsub();
+    };
   }, []);
 
   const leftNavLinks = [
@@ -39,9 +45,57 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenWhatsAppModal }) => {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled 
-        ? 'bg-slate-950/95 backdrop-blur-md shadow-lg border-b border-sky-950/80 py-2 sm:py-3' 
-        : 'bg-gradient-to-b from-slate-950/95 via-slate-950/85 to-transparent py-3 sm:py-4 text-white'
+        ? 'bg-slate-950/98 backdrop-blur-md shadow-lg border-b border-sky-950/80 py-0' 
+        : 'bg-gradient-to-b from-slate-950/95 via-slate-950/85 to-transparent py-0 text-white'
     }`}>
+      {/* Running Marquee Information Banner (Faixa de Informação Correndo) */}
+      <div className="w-full bg-gradient-to-r from-amber-400 via-sky-400 to-emerald-400 text-slate-950 py-1.5 px-2 overflow-hidden border-b border-amber-300/40 select-none shadow-md">
+        <div className="animate-marquee flex items-center gap-8 text-[11px] sm:text-xs font-black uppercase tracking-wider whitespace-nowrap">
+          {/* Track 1 */}
+          <div className="flex items-center gap-8 shrink-0">
+            <span className="flex items-center gap-1 bg-slate-950 text-white px-2 py-0.5 rounded-full text-[10px] font-extrabold shadow-xs">
+              🌊 SALVE SURF
+            </span>
+            <span>FRANCÊS BEACH SURF BOARD · O autêntico Salve Surf da Praia do Francês</span>
+            <span className="text-slate-800 font-bold">●</span>
+            <span>📍 Vila dos Pescadores · Av. dos Arrecifes, 45</span>
+            <span className="text-slate-800 font-bold">●</span>
+            <span>🏄‍♂️ Locação de Pranchas: Funboard, Shortboard, Longboard e Bodyboard a partir de R$ 35/h</span>
+            <span className="text-slate-800 font-bold">●</span>
+            <span>🤙 Aulas de Surf para Iniciantes e Avançados com Instrutores Locais</span>
+            <span className="text-slate-800 font-bold">●</span>
+            <span>⭐ Nota 4.7 no Google Reviews · Mais de 30 anos de história no Francês</span>
+            <span className="text-slate-800 font-bold">●</span>
+            <span>🛠️ Oficina Express de Consertos & Reparos de Prancha</span>
+            <span className="text-slate-800 font-bold">●</span>
+            <span>☀️ Aberto todos os dias das 06:30 às 18:00</span>
+            <span className="text-slate-800 font-bold">●</span>
+            <span>📲 WhatsApp Oficial: (82) 99306-2548</span>
+          </div>
+
+          {/* Track 2 (Duplicate for continuous loop) */}
+          <div className="flex items-center gap-8 shrink-0">
+            <span className="flex items-center gap-1 bg-slate-950 text-white px-2 py-0.5 rounded-full text-[10px] font-extrabold shadow-xs">
+              🌊 SALVE SURF
+            </span>
+            <span>FRANCÊS BEACH SURF BOARD · O autêntico Salve Surf da Praia do Francês</span>
+            <span className="text-slate-800 font-bold">●</span>
+            <span>📍 Vila dos Pescadores · Av. dos Arrecifes, 45</span>
+            <span className="text-slate-800 font-bold">●</span>
+            <span>🏄‍♂️ Locação de Pranchas: Funboard, Shortboard, Longboard e Bodyboard a partir de R$ 35/h</span>
+            <span className="text-slate-800 font-bold">●</span>
+            <span>🤙 Aulas de Surf para Iniciantes e Avançados com Instrutores Locais</span>
+            <span className="text-slate-800 font-bold">●</span>
+            <span>⭐ Nota 4.7 no Google Reviews · Mais de 30 anos de história no Francês</span>
+            <span className="text-slate-800 font-bold">●</span>
+            <span>🛠️ Oficina Express de Consertos & Reparos de Prancha</span>
+            <span className="text-slate-800 font-bold">●</span>
+            <span>☀️ Aberto todos os dias das 06:30 às 18:00</span>
+            <span className="text-slate-800 font-bold">●</span>
+            <span>📲 WhatsApp Oficial: (82) 99306-2548</span>
+          </div>
+        </div>
+      </div>
       {/* Top micro bar for open hours on desktop */}
       <div className={`hidden xl:block text-xs transition-colors duration-300 pb-2 border-b mb-2 ${
         isScrolled ? 'text-slate-400 border-slate-800/80' : 'text-slate-300 border-white/10'
@@ -123,7 +177,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenWhatsAppModal }) => {
         </div>
 
         {/* Right Side: Right Nav + Primary CTA */}
-        <div className="flex items-center gap-4 sm:gap-6">
+        {/* Right Side: Right Nav + Sound FX + Primary CTA */}
+        <div className="flex items-center gap-2 sm:gap-4 lg:gap-5">
           {/* Right nav links */}
           <nav className="hidden lg:flex items-center gap-4 text-xs xl:text-sm font-semibold">
             {rightNavLinks.map((link) => (
@@ -137,10 +192,30 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenWhatsAppModal }) => {
             ))}
           </nav>
 
+          {/* Mini-Game Sound FX Toggle */}
+          <button
+            onClick={() => soundEffects.toggleMute()}
+            className="flex items-center gap-1.5 bg-slate-900/90 hover:bg-slate-800 text-amber-300 border border-amber-400/30 px-2.5 py-1.5 sm:py-2 rounded-xl text-xs font-bold transition-all shadow-sm active:scale-95 cursor-pointer"
+            title={isMuted ? 'Ativar sons de mini-game' : 'Silenciar sons'}
+            aria-label="Controle de Som Mini-Game"
+          >
+            {isMuted ? (
+              <>
+                <VolumeX className="w-3.5 h-3.5 text-rose-400 shrink-0" />
+                <span className="hidden sm:inline text-[11px] text-slate-400">Som: Off</span>
+              </>
+            ) : (
+              <>
+                <Volume2 className="w-3.5 h-3.5 text-emerald-400 animate-pulse shrink-0" />
+                <span className="hidden sm:inline text-[11px] text-emerald-300 font-mono">Som: 8-Bit</span>
+              </>
+            )}
+          </button>
+
           {/* Action WhatsApp */}
           <button
             onClick={() => onOpenWhatsAppModal()}
-            className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all shadow-md shadow-emerald-600/30 active:scale-95 whitespace-nowrap cursor-pointer"
+            className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl text-xs sm:text-sm font-bold transition-all shadow-md shadow-emerald-600/30 active:scale-95 whitespace-nowrap cursor-pointer"
             aria-label="Abrir WhatsApp da Loja"
           >
             <MessageCircle className="w-4 h-4" />
