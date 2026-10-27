@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
+import { MoabDocumentarySection } from './components/MoabDocumentarySection';
 import { ForecastWidget } from './components/ForecastWidget';
 import { BoardCatalog } from './components/BoardCatalog';
 import { RentalSystem } from './components/RentalSystem';
@@ -42,6 +43,9 @@ export default function App() {
       <main className="flex-1">
         {/* 1. Hero / Salve Surf */}
         <Hero onOpenWhatsAppModal={handleOpenWhatsAppModal} />
+
+        {/* Documentário Histórico do Surf na Praia do Francês · Imperador do Surf Moab */}
+        <MoabDocumentarySection onOpenWhatsAppModal={handleOpenWhatsAppModal} />
 
         {/* Live Forecast & Sea Condition Monitor */}
         <ForecastWidget />

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MessageCircle, X, ChevronRight, Waves, ShoppingBag, Wrench, GraduationCap, Compass, Send } from 'lucide-react';
+import { MessageCircle, X, ChevronRight, Waves, ShoppingBag, Wrench, GraduationCap, Compass, Send, Crown } from 'lucide-react';
 import { createWhatsAppLink, STORE_INFO } from '../data/surfData';
 
 interface WhatsAppModalProps {
@@ -16,9 +16,25 @@ export const WhatsAppModal: React.FC<WhatsAppModalProps> = ({
   const [customMessage, setCustomMessage] = useState<string>(initialIntent || '');
   const [selectedTopic, setSelectedTopic] = useState<string>('');
 
+  React.useEffect(() => {
+    if (initialIntent === 'documentario-moab') {
+      setSelectedTopic('Falar com o Imperador do Surf Moab');
+      setCustomMessage('Olá mestre Moab e equipe Francês Beach! Assisti ao documentário histórico sobre a Praia do Francês e gostaria de conversar sobre as aulas e serviços na Vila dos Pescadores.');
+    } else if (initialIntent) {
+      setCustomMessage(initialIntent);
+    }
+  }, [initialIntent, isOpen]);
+
   if (!isOpen) return null;
 
   const intents = [
+    {
+      id: 'documentario-moab',
+      icon: Crown,
+      title: 'Falar com o Imperador do Surf Moab',
+      desc: 'História do Francês, agendamento de aulas com mestre Moab ou visita à loja.',
+      defaultMsg: 'Olá mestre Moab e equipe Francês Beach! Assisti ao documentário histórico sobre a Praia do Francês e gostaria de conversar sobre as aulas e serviços na Vila dos Pescadores.',
+    },
     {
       id: 'locacao',
       icon: Waves,

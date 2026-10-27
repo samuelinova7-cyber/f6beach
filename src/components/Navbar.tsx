@@ -26,18 +26,18 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenWhatsAppModal }) => {
 
   const leftNavLinks = [
     { label: 'Início', href: '#inicio' },
+    { label: 'Documentário Moab', href: '#documentario-moab' },
     { label: 'Pranchas', href: '#pranchas' },
     { label: 'Locação', href: '#locacao' },
-    { label: 'Reparos', href: '#reparos' },
     { label: 'Aulas', href: '#aulas' },
   ];
 
   const rightNavLinks = [
+    { label: 'Reparos', href: '#reparos' },
     { label: 'História Gazeta', href: '#historia' },
     { label: 'Relíquias', href: '#reliquias' },
     { label: 'Moda Praia', href: '#equipamentos' },
     { label: 'Avaliações', href: '#avaliacoes' },
-    { label: 'Onde Estamos', href: '#localizacao' },
   ];
 
   const allNavLinks = [...leftNavLinks, ...rightNavLinks];
@@ -57,6 +57,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenWhatsAppModal }) => {
               🌊 SALVE SURF
             </span>
             <span>FRANCÊS BEACH SURF BOARD · O autêntico Salve Surf da Praia do Francês</span>
+            <span className="text-slate-800 font-bold">●</span>
+            <span className="bg-slate-950 text-amber-300 px-2 py-0.5 rounded-md font-black">
+              🎬 ASSISTA: Documentário Histórico com o Imperador do Surf Moab!
+            </span>
             <span className="text-slate-800 font-bold">●</span>
             <span>📍 Vila dos Pescadores · Av. dos Arrecifes, 45</span>
             <span className="text-slate-800 font-bold">●</span>
@@ -79,6 +83,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenWhatsAppModal }) => {
               🌊 SALVE SURF
             </span>
             <span>FRANCÊS BEACH SURF BOARD · O autêntico Salve Surf da Praia do Francês</span>
+            <span className="text-slate-800 font-bold">●</span>
+            <span className="bg-slate-950 text-amber-300 px-2 py-0.5 rounded-md font-black">
+              🎬 ASSISTA: Documentário Histórico com o Imperador do Surf Moab!
+            </span>
             <span className="text-slate-800 font-bold">●</span>
             <span>📍 Vila dos Pescadores · Av. dos Arrecifes, 45</span>
             <span className="text-slate-800 font-bold">●</span>

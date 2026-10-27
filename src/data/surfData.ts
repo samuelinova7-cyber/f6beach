@@ -36,6 +36,16 @@ export const OFFICIAL_MEDIA = {
     video: 'https://res.cloudinary.com/hd1sahto/video/upload/v1793058684/SnapInsta.to_AQP_MZOsla073fIxkVvnt-v9Px7ScGY3R7X1b2gxjr5e0yqMVIIDLxAu8ZPj3tHk9ty-y4ImMUVAAf0PuNzl2lUTDXxkKOBk72AIeow.mp4',
     image: 'https://res.cloudinary.com/hd1sahto/image/upload/v1793060422/WhatsApp_Image_2026-10-26_at_8.49.43_PM_1.jpg',
   },
+  moabDocumentary: {
+    video: 'https://res.cloudinary.com/hd1sahto/video/upload/v1793139821/WhatsApp_Video_2026-10-27_at_6.47.06_PM.mp4',
+    images: [
+      'https://res.cloudinary.com/hd1sahto/image/upload/v1793140194/WhatsApp_Image_2026-10-27_at_7.24.21_PM.jpg',
+      'https://res.cloudinary.com/hd1sahto/image/upload/v1793140194/WhatsApp_Image_2026-10-27_at_7.24.19_PM.jpg',
+    ],
+    title: 'Documentário Histórico do Surf na Praia do Francês',
+    subtitle: 'Liderado pelo Imperador do Surf Moab — O guardião do legado das ondas alagoanas',
+    badge: 'Memória Viva & Tradição Oral',
+  },
   casualClothing: [
     {
       id: 'casual-img-1',

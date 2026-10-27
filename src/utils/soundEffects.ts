@@ -176,6 +176,22 @@ class MiniGameSoundEngine {
     }
   }
 
+  public playClick(): void {
+    this.playButtonClick();
+  }
+
+  public playSelect(): void {
+    this.playButtonClick();
+  }
+
+  public playOpen(): void {
+    this.playCoin();
+  }
+
+  public playClose(): void {
+    this.playButtonClick();
+  }
+
   /**
    * Attach global click listener to make all buttons and links play mini-game sounds
    */

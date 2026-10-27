@@ -181,13 +181,13 @@ export const Hero: React.FC<HeroProps> = ({ onOpenWhatsAppModal }) => {
 
         </div>
 
-        {/* Scroll down indicator */}
+        {/* Scroll down indicator pointing to the documentary directly below */}
         <a 
-          href="#previsao" 
-          className="mt-12 text-slate-300 hover:text-white transition-colors flex flex-col items-center gap-1 text-xs"
+          href="#documentario-moab" 
+          className="mt-12 text-amber-300 hover:text-amber-200 transition-colors flex flex-col items-center gap-1 text-xs font-semibold"
         >
-          <span>Condições do Mar & Mostruário</span>
-          <ChevronDown className="w-4 h-4 animate-bounce" />
+          <span>Assistir Documentário Histórico · Imperador do Surf</span>
+          <ChevronDown className="w-4 h-4 animate-bounce text-amber-400" />
         </a>
 
       </div>
