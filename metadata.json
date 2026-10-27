@@ -1,0 +1,7 @@
+{
+  "name": "Francês Beach Surf Board",
+  "description": "O autêntico Salve Surf da Praia do Francês. Pranchas, locação, reparos, aulas de surf, equipamentos e previsão das ondas em Alagoas.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+

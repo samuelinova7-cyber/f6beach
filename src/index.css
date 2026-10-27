@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+/* Custom scrollbar styling for aesthetic feel */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #94A3B8;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #64748B;
+}
+
+@keyframes glow-cyan {
+  0%, 100% {
+    box-shadow: 0 0 25px rgba(14, 165, 233, 0.7), 0 0 50px rgba(6, 182, 212, 0.4);
+    filter: drop-shadow(0 0 12px rgba(56, 189, 248, 0.8));
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(14, 165, 233, 1), 0 0 70px rgba(6, 182, 212, 0.7);
+    filter: drop-shadow(0 0 22px rgba(56, 189, 248, 1));
+  }
+}
+
+@keyframes glow-amber {
+  0%, 100% {
+    box-shadow: 0 0 25px rgba(245, 158, 11, 0.7), 0 0 50px rgba(251, 191, 36, 0.4);
+    filter: drop-shadow(0 0 12px rgba(251, 191, 36, 0.8));
+  }
+  50% {
+    box-shadow: 0 0 45px rgba(245, 158, 11, 1), 0 0 75px rgba(251, 191, 36, 0.7);
+    filter: drop-shadow(0 0 24px rgba(251, 191, 36, 1));
+  }
+}
+
+.animate-glow-cyan {
+  animation: glow-cyan 3s ease-in-out infinite;
+}
+
+.animate-glow-amber {
+  animation: glow-amber 3s ease-in-out infinite;
+}
