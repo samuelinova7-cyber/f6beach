@@ -37,7 +37,7 @@ export const OFFICIAL_MEDIA = {
     image: 'https://res.cloudinary.com/hd1sahto/image/upload/v1793060422/WhatsApp_Image_2026-10-26_at_8.49.43_PM_1.jpg',
   },
   moabDocumentary: {
-    video: 'https://res.cloudinary.com/hd1sahto/video/upload/v1793139821/WhatsApp_Video_2026-10-27_at_6.47.06_PM.mp4',
+    video: 'https://res.cloudinary.com/hd1sahto/video/upload/v1793194579/WhatsApp_Video_2026-10-28_at_10.33.14_AM.mp4',
     images: [
       'https://res.cloudinary.com/hd1sahto/image/upload/v1793140194/WhatsApp_Image_2026-10-27_at_7.24.21_PM.jpg',
       'https://res.cloudinary.com/hd1sahto/image/upload/v1793140194/WhatsApp_Image_2026-10-27_at_7.24.19_PM.jpg',
